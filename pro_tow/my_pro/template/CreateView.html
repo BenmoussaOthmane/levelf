@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "basic.html" %}
+
+{% block body_block%}
+
+<h1>
+    <!--  dans cette partier yla sab fal URL fg bali id rah kayan ghadi yafichilier text updet wila masbahch ghadi yafichili  taxt ajouter  -->
+    {% if not form.instance.pk %}  
+    <!-- pk : howa premary key yla masabahch  -->
+    Creat Produite
+    {% else %}
+    <!-- hna ysib pk dans URL  -->
+    UpdetProduite
+    {% endif %}
+
+</h1>
+
+<form method = "POST">
+<!-- hna rani ajouter un neveau prodeui et modefier 3la hsab pk yla sabah fal url ghadi nmodifier wl3aks ajouter  -->
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <input type="submit" class="btn btn-primary"  value="submit">
+</form>
+
+{% endblock%}

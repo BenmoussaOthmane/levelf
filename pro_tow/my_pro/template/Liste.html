@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+ {% extends "basic.html" %}
+
+ {% block body_block%}
+
+ <div class="container">
+     
+        <h1>  THIS PAGE liste  </h1>
+
+        <table class="table table-hover">
+
+                     <thead class="thead-dark">
+                        <tr>
+                           <th scope="col">ID</th>
+                           <th scope="col">Name</th>
+                           <th scope="col">qte</th>
+                         </tr>
+                     </thead>
+                    {% for pro in Liste_pro %}
+                     <tr>
+                        <th scope="row">  <a href=" {{pro.id}} ">  {{pro.id}} </a></th>
+                        <td> {{pro.name}} </td>
+                        <td> {{pro.qte}} </td>
+                     </tr>
+                    {% endfor %}
+             
+        </table>
+
+ </div>
+ <div class="container">
+        
+      <a  class="btn btn-primary" href="{% url 'my_ap:creat'  %} ">ajouter</a>
+      <!-- <a  class="btn btn-primary" href="{% url 'my_ap:creat'  %} ">Updare</a> -->
+
+    </div>
+
+
+
+
+    <!-- <table class="table">
+
+        <thead>
+           <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">qte</th>
+            </tr>
+        </thead>
+       {% for pro in Liste_pro %}
+        <tr>
+           <th scope="row"> {{pro.id}} </th>
+           <td> {{pro.name}} </td>
+           <td> {{pro.qte}} </td>           
+        </tr>
+       {% endfor %}
+
+    </table> -->
+
+ {% endblock%}

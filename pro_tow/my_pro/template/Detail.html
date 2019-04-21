@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+ {% extends "basic.html" %}
+
+ {% block body_block%}
+
+ 
+     <div class="jumbotron">
+
+        <h1> WLKOM TO PAGE DETAILE :  {{Detailpro.name}} </h1>  <!-- Detailpro howa lirani mdiklarih fal views.py dans class detail  -->
+         <p> {{ Detailpro.name}} </p>  <!--   hna rani n3ayat ll name ta3 la table pro bah nafichih  -->
+        <p> {{ Detailpro.qte }} </p><!--   whna bah n aficher ste -->
+        
+
+     </div>
+     <div class="jumbotron  , shadow-lg p-3 mb-5 bg-white rounded">
+     <h2> Livrision : </h2>
+     <!--   hna rani ndir boucle bah yjibli ga3 les information ta3 table pro bsq rani ayar all wyhothali fal livre  -->
+     {% for livr in Detailpro.produite.all %}
+     <p> produite: {{livr.produite}}  fournisseur : {{livr.fournisseur}}  AND time : {{livr.time}} AND Prix :{{livr.prix}} </p>  <!--  table livri raha fiha cle etranger ta3 table produite donk ghadi y afichiller livrision 3la hsab id ta3 produite -->
+     {%endfor%}
+    </div>
+
+
+     <div class="container">
+      <a  class="btn btn-primary" href="{% url 'my_ap:updeat' pk=Detailpro.pk %} ">Updare</a>
+
+      <a  class="btn btn-danger" href="{% url 'my_ap:delaite' pk=Detailpro.pk %} ">Delaite</a>
+   </div>   
+
+
+{% endblock%}

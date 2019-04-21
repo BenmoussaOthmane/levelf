@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+ {% extends "basic.html" %}
+
+
+ {% block body_block%}
+
+    <h1> you are sure delta {{pro.qte}} ? </h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <input type="submit" class="btn btn-danger" value="Delaite">
+        <a  class="btn btn-outline-secondary" href=" {% url 'my_ap:produite'%}"> Cansel</a>
+    </form>
+
+ {% endblock%}
+
+
+
+
+
